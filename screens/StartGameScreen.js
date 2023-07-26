@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     marginTop: 100,
     marginHorizontal: 24,
     padding: 16,
-    backgroundColor: "#72063c",
+    backgroundColor: "#733554",
     elevation: 4,
     shadowColor: "black",
     shadowOffset: { width: 4, height: 4 },
@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
     color: "#ddb52f",
     marginVertical: 20,
     textAlign: "center"
-
   }
 
 });

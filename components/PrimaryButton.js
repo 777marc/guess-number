@@ -1,14 +1,16 @@
 import { View, Text, Pressable, StyleSheet } from "react-native";
 
-function PrimaryButton({ children }) {
-
-  function pressed() {
-    console.log("pressed!!!");
-  }
-
+function PrimaryButton({ children, onPress }) {
   return (
     <View style={styles.buttonOuterContainer}>
-      <Pressable style={({ pressed }) => pressed ? [styles.pressed, styles.buttonInnerContainer] : styles.buttonInnerContainer} onPress={pressed}>
+      <Pressable
+        style={({ pressed }) =>
+          pressed
+            ? [styles.pressed, styles.buttonInnerContainer]
+            : styles.buttonInnerContainer
+        }
+        onPress={onPress}
+      >
         <Text style={styles.textContainer}>{children}</Text>
       </Pressable>
     </View>
@@ -32,8 +34,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   pressed: {
-    opacity: 0.75
-  }
+    opacity: 0.75,
+  },
 });
 
 export default PrimaryButton;

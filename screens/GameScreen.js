@@ -15,12 +15,12 @@ function generateRandomBetween(min, max, exclude) {
 
 function GameScreen({ userNumber }) {
   const initialGuess = generateRandomBetween(1, 100, userNumber);
-  const [currentGuess, setCurrentGuess] = useState();
+  const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
   return (
     <View style={styles.container}>
       <Title>Opponent's Guess</Title>
-      {/* // the guess */}
+      <NumberContainer>{currentGuess}</NumberContainer>
       <View>
         <Text>Higher or Lower?</Text>
         {/* // + - buttons */}

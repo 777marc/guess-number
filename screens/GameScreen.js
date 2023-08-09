@@ -18,23 +18,42 @@ function generateRandomBetween(min, max, exclude) {
 }
 
 function GameScreen({ userNumber }) {
-  const initialGuess = generateRandomBetween(minBoundary, maxBoundary, userNumber);
+  const initialGuess = generateRandomBetween(
+    minBoundary,
+    maxBoundary,
+    userNumber
+  );
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
   function nextGuessHandler(direction) {
-    console.log('userNumber', userNumber)
+    console.log("userNumber", userNumber);
+    console.log("currentGuess", currentGuess);
 
-    if ((direction === 'lower' && currentGuess < userNumber) || (direction === 'higher' && currentGuess > userNumber)) {
-      Alert.alert("Wrong!  Try again...", [{ text: 'Sorry!', style: 'cancel' }]);
+    if (
+      (direction === "lower" && currentGuess < userNumber) ||
+      (direction === "higher" && currentGuess > userNumber)
+    ) {
+      Alert.alert("Lies!", "Wrong!  Try again...", [
+        {
+          text: "Sorry!",
+          style: "cancel",
+        },
+      ]);
       return;
     }
 
-    if (direction === 'lower') {
+    console.log("dir:", direction);
+
+    if (direction === "lower") {
       maxBoundary = currentGuess;
     } else {
       minBoundary = currentGuess + 1;
     }
-    const newRndNum = generateRandomBetween(minBoundary, maxBoundary, currentGuess);
+    const newRndNum = generateRandomBetween(
+      minBoundary,
+      maxBoundary,
+      currentGuess
+    );
     setCurrentGuess(newRndNum);
   }
 
@@ -45,8 +64,12 @@ function GameScreen({ userNumber }) {
       <View>
         <Text>Higher or Lower?</Text>
         <View style={styles.guessHandlerButtons}>
-          <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>-</PrimaryButton>
-          <PrimaryButton onPress={nextGuessHandler.bind(this, "higher")}>+</PrimaryButton>
+          <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
+            -
+          </PrimaryButton>
+          <PrimaryButton onPress={nextGuessHandler.bind(this, "higher")}>
+            +
+          </PrimaryButton>
         </View>
       </View>
       <View>
@@ -62,8 +85,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   guessHandlerButtons: {
-    flexDirection: "row"
-  }
+    flexDirection: "row",
+  },
 });
 
 export default GameScreen;

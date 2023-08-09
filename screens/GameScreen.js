@@ -26,9 +26,6 @@ function GameScreen({ userNumber }) {
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
   function nextGuessHandler(direction) {
-    console.log("userNumber", userNumber);
-    console.log("currentGuess", currentGuess);
-
     if (
       (direction === "lower" && currentGuess < userNumber) ||
       (direction === "higher" && currentGuess > userNumber)

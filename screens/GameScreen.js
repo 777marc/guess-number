@@ -46,8 +46,6 @@ function GameScreen({ userNumber, onGameOver }) {
       return;
     }
 
-    console.log("dir:", direction);
-
     if (direction === "lower") {
       maxBoundary = currentGuess;
     } else {

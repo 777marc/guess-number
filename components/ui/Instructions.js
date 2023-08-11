@@ -1,8 +1,8 @@
 import { StyleSheet, Text } from "react-native";
 import Colors from "../../constants/colors";
 
-function Instructions({ children }) {
-  return <Text style={styles.instructionsText}>{children}</Text>;
+function Instructions({ children, style }) {
+  return <Text style={[styles.instructionsText, { marginBottom: 10 }]}>{children}</Text>;
 }
 
 const styles = new StyleSheet.create({

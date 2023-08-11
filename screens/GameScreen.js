@@ -5,6 +5,7 @@ import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Instructions from "../components/ui/Instructions";
 import Card from "../components/ui/Card";
+import { AntDesign } from '@expo/vector-icons';
 
 let maxBoundary = 100;
 let minBoundary = 1;
@@ -70,10 +71,10 @@ function GameScreen({ userNumber, onGameOver }) {
           <Instructions>Higher or Lower?</Instructions>
           <View style={styles.guessHandlerButtons}>
             <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
-              -
+              <AntDesign name="minus" size={24} color="white" />
             </PrimaryButton>
             <PrimaryButton onPress={nextGuessHandler.bind(this, "higher")}>
-              +
+              <AntDesign name="plus" size={24} color="white" />
             </PrimaryButton>
           </View>
         </Card>

@@ -3,7 +3,7 @@ import Colors from "../../constants/colors";
 
 function Card({ children }) {
     return (
-        <View style={styles.cardContainer}>
+        <View style={[styles.cardContainer]}>
             {children}
         </View>
     );

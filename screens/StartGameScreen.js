@@ -38,7 +38,9 @@ function StartGameScreen({ onPickNumber }) {
     <View style={styles.rootContainer}>
       <Title>Guess That Number</Title>
       <Card style={styles.inputContainer}>
-        <Instructions style={styles.instructionsText}>Guess a Number</Instructions>
+        <Instructions style={styles.instructionsText}>
+          Guess a Number
+        </Instructions>
         <TextInput
           style={styles.numberInput}
           maxLength={2}
@@ -70,7 +72,7 @@ const styles = StyleSheet.create({
   },
   instructionsText: {
     color: Colors.yellow500,
-    fontSize: "24",
+    fontSize: 24,
   },
   numberInput: {
     height: 50,

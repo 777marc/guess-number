@@ -7,7 +7,7 @@ import Instructions from "../components/ui/Instructions";
 import Card from "../components/ui/Card";
 import { AntDesign } from '@expo/vector-icons';
 
-let maxBoundary = 100;
+let maxBoundary = 10;
 let minBoundary = 1;
 
 function generateRandomBetween(min, max, exclude) {

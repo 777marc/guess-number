@@ -26,10 +26,13 @@ function GameScreen({ userNumber, onGameOver }) {
     maxBoundary,
     userNumber
   );
+
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
+  console.log("currentGuess:", currentGuess, "userNumber:", userNumber);
+
   useEffect(() => {
-    if (1 === 1) {
+    if (currentGuess === userNumber) {
       onGameOver();
     }
   }, [currentGuess]);
@@ -78,9 +81,6 @@ function GameScreen({ userNumber, onGameOver }) {
             </PrimaryButton>
           </View>
         </Card>
-      </View>
-      <View>
-        <Text>Round:</Text>
       </View>
     </View>
   );

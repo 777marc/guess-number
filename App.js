@@ -29,6 +29,11 @@ export default function App() {
     setGameIsOver(true);
   }
 
+  function resetGame() {
+    setGameIsOver(false);
+    setUserNumber(null);
+  }
+
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
 
   if (userNumber && !gameIsOver) {
@@ -36,7 +41,7 @@ export default function App() {
   }
 
   if (gameIsOver) {
-    screen = <GameOverScreen></GameOverScreen>;
+    screen = <GameOverScreen onReset={resetGame}></GameOverScreen>;
   }
 
   return (

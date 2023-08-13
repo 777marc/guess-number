@@ -29,7 +29,7 @@ function GameScreen({ userNumber, onGameOver }) {
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
 
   useEffect(() => {
-    if (currentGuess === userNumber) {
+    if (1 === 1) {
       onGameOver();
     }
   }, [currentGuess]);

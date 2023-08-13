@@ -9,15 +9,15 @@ function formatStat(stat) {
     )
 }
 
-function GameOverScreen({ onReset }) {
+function GameOverScreen({ reset, userNumber, rounds }) {
     return (
         <View style={styles.container}>
             <Title>The Game is Over!</Title>
             <View style={styles.imageContainer}>
                 <Image style={styles.image} source={require("../assets/success.png")} />
             </View>
-            <Text style={styles.stats}>Your phone needed {formatStat("x")} rounds to guess the number {formatStat("y")}.</Text>
-            <PrimaryButton onPress={onReset}>Start Over</PrimaryButton>
+            <Text style={styles.stats}>Your phone needed {formatStat(rounds)} rounds to guess the number {formatStat(userNumber)}.</Text>
+            <PrimaryButton onPress={reset}>Start Over</PrimaryButton>
         </View>
     );
 }

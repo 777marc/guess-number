@@ -33,6 +33,8 @@ const styles = StyleSheet.create({
   textContainer: {
     color: "white",
     textAlign: "center",
+    fontSize: 24,
+    paddingHorizontal: 24
   },
   pressed: {
     opacity: 0.75,

@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import Colors from '../constants/colors';
 import Title from '../components/ui/Title';
+import PrimaryButton from "../components/ui/PrimaryButton";
 
 function formatStat(stat) {
     return (
@@ -16,6 +17,7 @@ function GameOverScreen() {
                 <Image style={styles.image} source={require("../assets/success.png")} />
             </View>
             <Text style={styles.stats}>Your phone needed {formatStat("x")} rounds to guess the number {formatStat("y")}.</Text>
+            <PrimaryButton>Start Over</PrimaryButton>
         </View>
     );
 }
@@ -45,7 +47,9 @@ const styles = StyleSheet.create({
     },
     stats: {
         color: "white",
-        fontSize: 24
+        fontSize: 24,
+        marginBottom: 24,
+        textAlign: "center"
     },
     statsBold: {
         color: Colors.yellow500,

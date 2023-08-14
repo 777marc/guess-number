@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { Alert, StyleSheet, Text, View } from "react-native";
+import { Alert, FlatList, StyleSheet, Text, View } from "react-native";
 import Title from "../components/ui/Title";
 import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Instructions from "../components/ui/Instructions";
 import Card from "../components/ui/Card";
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign } from "@expo/vector-icons";
 
 let maxBoundary = 10;
 let minBoundary = 1;
@@ -40,10 +40,9 @@ function GameScreen({ userNumber, onGameOver, setRoundNumber }) {
   useEffect(() => {
     maxBoundary = 10;
     minBoundary = 1;
-  }, [])
+  }, []);
 
   function nextGuessHandler(direction) {
-
     if (
       (direction === "lower" && currentGuess < userNumber) ||
       (direction === "higher" && currentGuess > userNumber)
@@ -68,9 +67,7 @@ function GameScreen({ userNumber, onGameOver, setRoundNumber }) {
       currentGuess
     );
     setCurrentGuess(newRndNum);
-    console.log("guessRound", guessRound)
-    setGuessRound(prev => [currentGuess, ...guessRound]);
-
+    setGuessRound((prev) => [currentGuess, ...guessRound]);
   }
 
   return (
@@ -89,6 +86,12 @@ function GameScreen({ userNumber, onGameOver, setRoundNumber }) {
             </PrimaryButton>
           </View>
         </Card>
+        <FlatList
+          data={guessRound}
+          renderItem={(items, index) => {
+            return <Text key={index}>{items.item}</Text>;
+          }}
+        />
       </View>
     </View>
   );

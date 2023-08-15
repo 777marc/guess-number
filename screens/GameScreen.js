@@ -5,6 +5,7 @@ import NumberContainer from "../components/game/NumberContainer";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Instructions from "../components/ui/Instructions";
 import Card from "../components/ui/Card";
+import GuessLogItem from "../components/game/GuessLogItem";
 import { AntDesign } from "@expo/vector-icons";
 import Colors from "../constants/colors";
 
@@ -71,6 +72,8 @@ function GameScreen({ userNumber, onGameOver, setRoundNumber }) {
     setGuessRound((prev) => [currentGuess, ...prev]);
   }
 
+  const guessRoundsListLength = guessRound.length;
+
   return (
     <View style={styles.container}>
       <Title>Opponent's Guess</Title>
@@ -87,11 +90,16 @@ function GameScreen({ userNumber, onGameOver, setRoundNumber }) {
             </PrimaryButton>
           </View>
         </Card>
-        <View style={styles.guessHistoryContainer}>
+        <View style={styles.listContainer}>
           <FlatList
             data={guessRound}
             renderItem={(items, index) => {
-              return <Text style={styles.guessHistory} key={index}>{items.item}</Text>;
+              return (
+                <GuessLogItem
+                  roundNumber={guessRoundsListLength - items.index}
+                  guess={items.item}
+                />
+              );
             }}
           />
         </View>
@@ -108,21 +116,9 @@ const styles = StyleSheet.create({
   guessHandlerButtons: {
     flexDirection: "row",
   },
-  guessHistoryContainer: {
-    padding: 10,
-    alignItems: "center"
+  listContainer: {
+    padding: 16,
   },
-  guessHistory: {
-    padding: 5,
-    borderWidth: 2,
-    borderColor: Colors.yellow500,
-    backgroundColor: Colors.primary600,
-    color: Colors.yellow500,
-    margin: 2,
-    width: 50,
-    alignItems: "center"
-
-  }
 });
 
 export default GameScreen;
